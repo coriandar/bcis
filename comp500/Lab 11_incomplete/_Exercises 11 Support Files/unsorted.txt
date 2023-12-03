@@ -1,0 +1,1 @@
+Array input was: { 3, 8, 1, 0, 2 }

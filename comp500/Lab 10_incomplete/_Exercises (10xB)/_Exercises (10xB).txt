@@ -1,0 +1,62 @@
+10x03b - main Repeater
+Write a program that processes the arguments passed into main from the command line.
+
+The first argument is expected to be a number. The second argument is expected to be a single word.
+
+The program must then print the single word argument, the number of times specified by the first argument, each time separated by a comma.
+
+For example, if the program was run as follows:
+exercise.exe 5 hello
+
+	hello,hello,hello,hello,hello
+
+For example, if the program was run as follows:
+exercise.exe 7 CAT
+
+	CAT,CAT,CAT,CAT,CAT,CAT,CAT
+
+If the program is run with --help used as an argument, for example:
+exercise.exe --help
+	This program repeats a word a specified number of times.
+	
+	To use the program:
+	
+	exercise.exe n word
+	
+	Where n is the number of times to repeat the text 'word'
+----------------------------------------------------------------------
+10x08b - Prime Ministers of NZ
+In the history of Prime Ministers of New Zealand the following held office for the years shown:
+
+Robert Muldoon	1975 - 1984
+David Lange		1984 - 1989
+Geoffrey Palmer	1989 - 1990
+Mike Moore		1990 - 1990
+Jim Bolger		1990 - 1997
+Jenny Shipley	1997 - 1999
+Helen Clark		1999 - 2008
+John Key		2008 - 2016
+Bill English	2016 - 2017
+Jacinda Ardern	2017 - present
+
+Implement a structure type named Prime_Minister. Use appropriate data types and names for the structure’s members. In main instantiate nine structure variables, one for each Prime Minister listed in the table above. Set the members of each structure appropriately.
+
+Next, create a function named print_prime_minister, which can be passed a single struct Prime_Minister variable by reference. Declare a prototype for this function. Use function recursion to print out a Prime Ministers’ successors. For example, when the Helen Clark structure variable reference is passed to the print_prime_minister function the following output must be generated, noting that the successor is the person who held the office immediately after them.
+
+	Prime Minister: Helen Clark
+	Term began: 1999
+	Term ended: 2008
+	Helen Clark's successor was...
+	Prime Minister: John Key
+	Term began: 2008
+	Term ended: 2016
+	John Key's successor was...
+	Prime Minister: Bill English
+	Term began: 2016
+	Term ended: 2017
+	Bill English's successor was...
+	Prime Minister: Jacinda Ardern
+	Term began: 2017
+	Jacinda Ardern is the incumbent.
+
+----------------------------------------------------------------------

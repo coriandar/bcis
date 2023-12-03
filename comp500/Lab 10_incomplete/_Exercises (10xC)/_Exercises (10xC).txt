@@ -1,0 +1,168 @@
+----------------------------------------------------------------------
+10x03c - main Arg Math
+Design and implement a program that takes in three arguments via the main function’s parameters.
+
+The first argument passed into the program represents the mathematical operation to conduct:
+
+Argument:		Operation:
+a				Add
+s				Subtract
+m				Multiply
+d				Divide
+
+The next two arguments are the numbers to be utilised in the operation. Since arguments to main are passed in via character array, you will need to convert from ASCII C-String to integer or floating- point value – recall you can use atoi and atof to achieve this.
+
+An example of the program when executed as exercise.exe a 4 7 is as follows:
+	11
+
+An example of the program when executed as exercise.exe m 3 6 is as follows:
+	18
+
+An example of the program when executed as exercise.exe s 10 12 is as follows:
+	-2
+
+An example of the program when executed as exercise.exe d 50 100 is as follows:
+	0.500000
+
+----------------------------------------------------------------------
+10x08c - Simple Stack
+	#define _CRT_SECURE_NO_WARNINGS
+	#include <stdio.h>
+	#include <assert.h>
+	#include <stdlib.h>
+
+	enum USER_ACTION
+	{
+		PUSH = 1,
+		POP,
+		PRINT,
+		QUIT
+	};
+
+	typedef struct tagStack_Node
+	{
+		int data;
+		struct tagStack_Node * p_next;
+	} Stack_Node;
+	
+	void push(Stack_Node **pp_top, int i);
+	int pop(Stack_Node **pp_top);
+	int is_empty(Stack_Node *p);
+	void print_stack(Stack_Node *p);
+	void print_instructions(void);
+	
+A stack is a constrained version of a linked list. New nodes can be added to the top of a stack. Onlythe top node can be removed from the stack. The stack is known as a last-in-first-out (LIFO) datas tructure.
+
+
+In this exercise you will implement the push, pop, is_empty and stack printing functionality. Donot change the prototype declarations as shown above!
+
+The stack is referenced via pointer, which points to the node at the top of the stack. Each node has apointer to the next node in the stack. When this pointer is null, it indicate that node is at the bottomof the stack.
+
+The push function will add to the top of the stack – creating a new node.
+	
+The pop will remove from the top of the stack – freeing the node at the top, and returning its data.
+
+The is_empty function will check the stack pointer – if it is null, then the stack is empty, hence returning 1 to indication that the stack is empty. Otherwise this function will return zero.
+	
+A main function for testing the implementation of push, pop, is_empty and print_stackhas been implemented as follows:
+	
+	int main(void)
+	{
+		Stack_Node *my_stack = 0;
+		
+		print_instructions();
+		
+		printf("? ");
+		int user_choice = 0;
+		scanf("%d", &user_choice);
+		
+		int value = 0;
+		
+		while (user_choice != QUIT)
+		{
+			switch (user_choice)
+			{
+				case PUSH:
+					printf("Enter an integer: ");
+					scanf("%d", &value);
+					push(&my_stack, value);
+					print_stack(my_stack);
+					break;
+					
+				case POP:
+					if (!is_empty(my_stack))
+					{
+						printf("Popped off the value: ");
+						printf("%d\n", pop(&my_stack));
+						print_stack(my_stack);
+					}
+					break;
+					
+				case PRINT:
+					print_stack(my_stack);
+					break;
+					
+				default:
+					printf("Invalid choice!\n");
+					break;
+			}
+
+			print_instructions();
+			printf("? ");
+			scanf("%d", &user_choice);
+		}
+
+		printf("Goodbye!\n");
+		
+		return 0;
+	}
+
+Firstly, implement the print_instructions function such that it will output the following when called:
+
+	Input your choice:
+	1 to push a value on the stack.
+	2 to pop a value off the stack.
+	3 to print the stack.
+	4 to quit.	
+	
+Next, implement is_empty, such that it will check if p_top is null. If it is null, the function must return 1, otherwise 0.
+	
+Next, implement print_stack based upon the following pseudo code:
+
+	START print_stack(Stack_Node* p)
+		IF is_empty(p)
+			PRINT "Stack is empty!\n"
+		ELSE
+			PRINT "Printing Stack:\n"
+			DECLARE Stack_Node* current
+			SET current TO p
+			WHILE current IS NOT EQUALT TO null
+				PRINT current->data
+				SET current TO current->p_next
+			ENDWHILE
+		ENDIF
+	END
+
+
+	START push(Stack_Node** pp_top, int i)
+		DECLARE Stack_Node* p_new_item
+		SET p_new_item TO malloc(sizeof(Stack_Node))
+		ASSERT p_new_item
+		SET p_new_item->data TO i
+		SET p_new_item->p_next TO *pp_top
+		SET *pp_top TO p_new_item
+	END
+	
+	START pop(Stack_Node** pp_top)
+		DECLARE int popped_value
+		SET popped_value to 0
+		DECLARE Stack_Node* temp
+		SET temp TO *pp_top
+		SET popped_value TO (*pp_top)->data
+		SET *pp_top TO (*pp_top)->p_next
+		FREE temp
+		SET temp TO 0
+		RETURN popped_value
+	END
+	
+----------------------------------------------------------------------

@@ -1,0 +1,184 @@
+8x07e - Random Spheres
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include <time.h>
+	
+	// TODO: Declare a Sphere structure here:
+	
+	float get_random_percent(void);
+	void generate_spheres(struct Sphere all_spheres[10]);
+	void print_spheres(struct Sphere all_spheres[10]);
+	
+	int main(void)
+	{
+		srand(time(0));
+		
+		struct Sphere the_spheres[10];
+		
+		int running = 1;
+		char input = 0;
+		
+		do
+		{
+			printf("Press enter to generate new spheres:\n");
+			scanf("%c", &input);
+			generate_spheres(the_spheres);
+			print_spheres(the_spheres);
+		}
+		while (running);
+		
+		return 0;
+	}
+	
+	// TODO: Define the get_random_percent function here:
+	// TODO: Define the generate_spheres function here:
+	// TODO: Define the print_spheres function here:
+	
+Start by declaring the Sphere structure. This structure must have three float members, a radius, a volume, and a surface_area.
+
+Next, define the get_random_percent function such that it returns a random floating-point value between 0.0f and 1.0f, inclusive.
+
+Next, define the generate_spheres function such that it creates values for 10 different spheres, saving each sphere’s details into an element in the all_spheres array. Note that when an array is passed into a function, it is not passed-by-value, but instead pass-by-reference. This means the function is able to modify the data in the array that the caller passes into the function!
+
+Each sphere must have a radius between 0.0f and 10.0f units. Use the get_random_percent function to generate a random radius for each sphere. The value returned from get_random_percent can be scaled by the generate_spheres function (times 10) to generate the random radius.
+
+Also, based upon each sphere’s radius, compute the sphere’s volume and surface area.
+
+Remember, to calculate the volume of a sphere, use the following formula:
+
+	volume = 4/3 x π x radius3
+
+Remember, to calculate the surface are of a sphere, use the following formula:
+
+	surface_area = 4 x π x radius2
+
+Finally, define the print_spheres function such that it will print out the member data for each sphere in the all_spheres array, in the following style:
+
+	Sphere 0: radius = 7.170934
+	volume = 1544.598022
+	surface_area = 646.191101
+
+Remember that the all_spheres array is 10 elements in dimension.
+
+A completed example of the program’s output can be seen on the following page.
+
+Ensure the program output is exactly as described, and that the whitespace of your source code is well formatted. Utilise good naming practices when declaring variables.
+
+	Press enter to generate new spheres:
+	
+	Sphere 0: 	radius = 7.170934
+				volume = 1544.598022
+				Surface_area = 646.191101
+	
+	Sphere 1: 	radius = 0.496536
+				volume = 0.512792
+				surface_area = 3.098213
+	
+	Sphere 2: 	radius = 8.291574
+				volume = 2387.807373
+				surface_area = 863.939880
+	
+	Sphere 3: 	radius = 1.351970
+				volume = 10.351169
+				surface_area = 22.969080
+	
+	Sphere 4: 	radius = 8.552202
+				volume = 2620.125977
+				surface_area = 919.105652
+	
+	Sphere 5: 	radius = 5.654775
+				volume = 757.415527
+				surface_area = 401.827942
+	
+	Sphere 6: 	radius = 9.698478
+				volume = 3821.193359
+				surface_area = 1181.997803
+	
+	Sphere 7: 	radius = 2.131718
+				volume = 40.576775
+				surface_area = 57.104321
+				
+	Sphere 8: 	radius = 4.278390
+				volume = 328.041931
+				surface_area = 230.022461
+				
+	Sphere 9: 	radius = 5.079195
+				volume = 548.874451
+				surface_area = 324.189819
+				Press enter to generate new spheres:
+----------------------------------------------------------------------
+8x09e - Modular GMN
+Write a program which gives the user seven turns to guess a secret number, and ensure it is modular in design. Create functions that have unique responsibility, and hence avoid any code duplication.
+
+An example of the program’s output is as follows:
+	I'm thinking of a number between 1 and 100
+	
+	You have 7 turns left!
+	
+	What is your guess? 50
+	Your guess of 50 is too low!
+	You have 6 turns left!
+	
+	What is your guess? 75
+	Your guess of 75 is too high!
+	You have 5 turns left!
+	
+	What is your guess? 66
+	Your guess of 66 is too low!
+	You have 4 turns left!
+	
+	What is your guess? 72
+	Your guess of 72 is too high!
+	You have 3 turns left!
+	
+	What is your guess? 69
+	Your guess of 69 is too low!
+	You have 2 turns left!
+	
+	What is your guess? 70
+	You guessed it in 6 turns.
+	Well done!
+
+----------------------------------------------------------------------
+8x10e - Your Adventure
+The original adventure game was called Colossal Cave Adventure (Crowther, 1976), or sometimes known as just Adventure. It was text-based and distributed for free with early Unix computer systems. An example of the program output is as follows:
+
+	WELCOME TO ADVENTURE!! WOULD YOU LIKE INSTRUCTIONS?
+	
+	yes
+	
+	SOMEWHERE NEARBY IS COLOSSAL CAVE, WHERE OTHERS HAVE FOUND FORTUNES
+	IN TREASURE AND GOLD, THOUGH IT IS RUMORED THAT SOME WHO ENTER ARE
+	NEVER SEEN AGAIN. MAGIC IS SAID TO WORK IN THE CAVE. I WILL BE YOUR
+	EYES AND HANDS. DIRECT ME WITH COMMANDS OF 1 OR 2 WORDS. I SHOULD
+	WARN YOU THAT I LOOK AT ONLY THE FIRST FIVE LETTERS OF EACH WORK, SO
+	YOU'LL HAVE TO ENTER "NORTHWEST" AS "NE" TO DISTINGUISH IT FROM
+	"NORTH". (SHOULD YOU GET STUCK, TYPE "HELP" FOR SOME GENERAL HINTS.
+	FOR INFORMATION ON HOW TO END YOUR ADVENTURE, ETC. TYPE "INFO".)
+	
+	YOU ARE STANDING AT THE END OF A ROAD BEFORE A SMALL BRICK BUILDING.
+	AROUND YOU IS A FOREST. A SMALL STREAM FLOWS OUT OF THE BUILDING AND
+	DOWN A GULLY.
+	
+	east
+	
+	YOU ARE INSIDE A BUILDING, A WELL HOUSE FOR A LARGE SPRING.
+	
+	THERE ARE SOME KEYS ON THE GROUND HERE.
+	
+	THERE IS A SHINY BRASS LAMP NEARBY.
+	
+	THERE IS FOOD HERE.
+	
+Implement your own adventure game. The game should:
+	• Be based on a theme of your own choosing, which is fun and not offensive;
+	• Allow the user to enter commands consisting of a single character each;
+	• Allow the user to move between a number of locations, receiving short descriptions of each;
+	• Allow the user to collect at least one object and use it in another location to solve a simple puzzle;
+	• Have a way for the user to win;
+	• Have a way for the user to get help – a 'h' or '?' command would be suitable;
+	• Have a way for the user to quit.
+
+The game algorithm should be structured using functions.
+
+----------------------------------------------------------------------

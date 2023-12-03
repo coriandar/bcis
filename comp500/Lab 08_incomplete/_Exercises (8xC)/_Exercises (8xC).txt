@@ -1,0 +1,138 @@
+----------------------------------------------------------------------
+8x05c - Vector Operations
+	#include <stdio.h>
+	
+	struct Vector3
+	{
+		float x;
+		float y;
+		float z;
+	};
+	
+	struct Vector3 add(struct Vector3 a, struct Vector3 b);
+	struct Vector3 subtract(struct Vector3 a, struct Vector3 b);
+	float dot_product(struct Vector3 a, struct Vector3 b);
+	void print_vector3(struct Vector3 to_print);
+	
+	int main(void)
+	{
+		// TODO: Get two vectors input from the user.
+		// TODO: Compute vector addition
+		// TODO: Compute vector subtraction
+		// TODO: Compute vector dot product
+		// TODO: Print results...
+		
+		return 0;
+	}
+	
+	// TODO: Define functions here:
+
+Complete the missing instructions at each TODO comment.
+
+Implement function definitions for add, subtract, dot_product and print_vector3.
+
+Remember, vector addition is performed by adding the corresponding components of each vector. Vector subtraction is the process of taking a vector difference, and is the inverse operation to vector addition. The dot product of two vectors is a scaler, to compute this each corresponding component is multiplied together, then the results of which are summed.
+
+Implement the TODO comments in the main function, and clearly output the computation results to the user.
+
+----------------------------------------------------------------------
+8x09c - Modular Calculator
+Design and implement an interactive desktop calculator. Use function modularity to structure your program – you will likely create several functions to help structure your overall program.
+
+	0.00000
+	: =
+	= 1.5
+	1.50000
+	: *
+	* v
+	Error, input is not a number.
+	* 2
+	3.00000
+	: o
+	Error, o is not a known command, try h for help.
+	: h
+	Commands are:
+	+ add
+	- subtract
+	* multiply
+	/ divide
+	= set value
+	h print this help
+	q quit
+	: q
+	Goodbye!
+
+Note the following about the way that calculator works:
+
+	• First it prints the current running total;
+	• Then it prints the : prompt (followed by a space) to ask for a command;
+	• The +, -, * and / commands all need a number (the argument) to be entered;
+	• When entering the argument the command (followed by a space) should be used as the prompt.
+	• If the user enters a bad argument the program outputs "Error, input is not a number." and then asks again until the user enters a valid argument.
+		o Remember scanf() returns the number of specifiers that it was able to parse.
+	• If the user enters a bad command the program outputs "Error, X is not a known
+	command, try h for help.", where X is replaced with the user’s bad input.
+	• Finally, when the user inputs h, the calculator outputs the help text.
+
+----------------------------------------------------------------------
+8x10c - Jewel Wander
+Create a program where the user moves around a 2-dimensional grid by moving up, down, left, or right. The top-left corner of the grid is the (x, y) location (0, 0). Moving right increases the x- coordinate. Moving down increases the y-coordinate. The grid is 50 units wide and 10 units high, spanning from (0, 0) to (49, 9). The user must not be able to move outside these boundaries.
+
+Randomly scatter four jewels on the grid, 'a', 'b', 'c' and 'd'.
+
+The user must start at position (0, 0), and must be represented by a 'P' symbol. Their goal is to “pick up” the four jewels by moving from (0, 0) to the location of each of the jewels. Once the user picks up all four jewels, the program ends, stating how many moves were made.
+
+Allow user input via the following keys: 'w' (up), 'a' (left), 's' (down), and 'd' (right).
+
+Also, the user must be able to press 'q' to quit before collecting all jewels.
+
+Declare and define at least five useful functions in addition to the main function.
+
+For example, the program starts as follows:
+	P-------------------------------------------------
+	--------------------------------------------------
+	-----------------------------------c--------------
+	--------------------------------------------------
+	-----------a--------------------------------------
+	-----------------------b--------------------------
+	--------------------------------------------------
+	--------------------------------------------------
+	--------------------------------------------d-----
+	--------------------------------------------------
+	Player's choice (w/a/s/d/q)?
+
+For example, when the user chooses to quit the following occurs:
+
+           Oh no! You quit!!!
+	[] [] [] [] GAME OVER! [] [] [] []
+
+For example, the program after the user has collected two of the jewels:
+	--------------------------------------------------
+	--------------------------------------------------
+	-----------------------------------c--------------
+	--------------------------------------------------
+	--------------------------------------------------
+	-----------------------P--------------------------
+	--------------------------------------------------
+	--------------------------------------------------
+	--------------------------------------------d-----
+	--------------------------------------------------
+	Player's choice (w/a/s/d/q)?
+
+For example, the program ends when the user has picked up all the jewels as follows:
+[] [] [] [] WELL DONE! [] [] [] []
+
+   You collected all four jewels!
+
+      It took you 117 moves!
+
+[] [] [] [] GAME OVER! [] [] [] []
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------

@@ -1,0 +1,298 @@
+10x01e - Bingo Board
+Write a program which generates random Bingo Boards.
+
+	+-----+-----+-----+-----+-----+
+	|  B  |  I  |  N  |  G  |  O  |
+	+=====+=====+=====+=====+=====+
+	|  11 | 18  | 45  | 49  |  70 |
+	+-----+-----+-----+-----+-----+
+	|  5  | 16  | 32  | 47  |  75 |
+	+-----+-----+-----+-----+-----+
+	|  7  | 27  | 42  | 59  |  61 |
+	+-----+-----+-----+-----+-----+
+	|  12 | 22  | 44  | 51  |  65 |
+	+-----+-----+-----+-----+-----+
+	|  1  | 30  | 37  | 60  |  69 |
+	+-----+-----+-----+-----+-----+
+
+Numbers in the “B” column must be from the range of 1 to 15 inclusive. Numbers in the “I” column must be from the range of 16 to 30 inclusive. Numbers in the “N” column must be from the range of 31 to 45 inclusive. Numbers in the “G” column must be from the range of 46 to 60 inclusive. Numbers in the “O” column must be from the range of 61 to 75 inclusive.
+
+Ensure that a number cannot appear in the Bingo Board twice!
+----------------------------------------------------------------------
+10x02e - Word Game
+Design and implement a word game where a human player must guess a secret word, one letter at a time.
+
+The player is given ten guesses. If the player guesses correctly, the letter is revealed in the secret word.
+
+When all ten guesses have been used the player loses.
+
+If the player correctly guesses the word before using all their turns, the player wins.
+
+Implement a 2D char array that stores a list of at least 25 secret words, each of a different length in characters. At the start of the game, pick a secret word to be used from the 2D array.
+
+A partial example of program output is as follows:
+
+	Secret Word: _ R _ O _ R _ M M _ _ _
+
+	Incorrect guesses: E H W C V B L Q
+
+	Next guess?
+
+----------------------------------------------------------------------
+10x03e - Math Table-Quiz
+Write a program that processes the arguments passed into main from the command line.
+When the program is launched, it must react to the following arguments:
+
+Argument:	Action:
+-h			Display help text.
+-t x		Display the times table for the given x argument.
+-a r		Run the Math Addition Quiz, where the given r is the number of rounds to play.
+-m r		Run the Math Multiplication Quiz, where the given r is the number of rounds to play.
+
+It will help to design and implement a modular program, with functions that do particular jobs within the overall program. Think carefully about what can be modularised, and hence be made reusable, within this program.
+
+If the program is executed as follows:
+	exercise.exe -h
+	
+Then the program’s output would be as follows:
+	To use the program:
+
+	-h 		Display the help text.
+	-t x 	Display the times table for the given x.
+	-a r 	Run the Math Addition Quiz, where the given r is the
+			number of rounds to play.
+	-m r 	Run the Math Multiplication Quiz, where the given r
+			is the number of rounds to play.
+			
+If the program is launched without an argument, or with arguments that are unsupported, the program must output the following:
+	Unknown arguments!
+	Use –h for help!
+	
+If the program is executed as follows:
+	exercise.exe -t 7
+
+	Displaying the 7 times table:
+	0 x 7 = 0
+	1 x 7 = 7
+	2 x 7 = 14
+	3 x 7 = 21
+	4 x 7 = 28
+	5 x 7 = 35
+	6 x 7 = 42
+	7 x 7 = 49
+	8 x 7 = 56
+	9 x 7 = 63
+	10 x 7 = 70
+	11 x 7 = 77
+	12 x 7 = 84
+	
+If the program is executed with -a 3 used as an argument, for example:
+	exercise.exe –a 3
+
+Then the program must output:
+	Welcome to the Maths Addition Quiz!
+	The 3 question quiz begins!
+	4 + 9 = ?
+	> 13
+	Correct!
+	4 + 2 = ?
+	> 7
+	Incorrect!
+	6 + 9 = ?
+	> 15
+	Correct!
+	Result: 2 out of 3 correct!
+
+Similarly, the program must run the Math Multiplication Quiz if the -m argument is supplied.
+
+----------------------------------------------------------------------
+10x04e - struct Offsets
+
+	#define _CRT_SECURE_NO_WARNINGS
+	#include <stdio.h>
+	#include <string.h>
+
+	struct Character
+	{
+		char name[10];
+		short hitpoints;
+		int leadership;
+		int speed;
+		float luck;
+		short attack;
+	};
+
+	int main(void)
+	{
+		struct Character npc;
+		strcpy(npc.name, "Hendrik");
+		npc.hitpoints = 5;
+		npc.attack = 10;
+		npc.speed = 9;
+		npc.leadership = 8;
+		npc.luck = 0.75 f;
+		
+		printf("VARIABLE |VALUE | STORED AT\n");
+		printf("---------------+------------+-----------\n");
+		printf("npc | %10s | %p\n", "", &npc);
+		printf("npc.name | %10s | %p\n", npc.name, &npc.name);
+		printf("npc.hit_points | %10d | %p\n", npc.hitpoints, &npc.hitpoints);
+		printf("npc.leadership | %10d | %p\n", npc.leadership, &npc.leadership);
+		printf("npc.speed | %10d | %p\n", npc.speed, &npc.speed);
+		printf("npc.luck | %10f | %p\n", npc.luck, &npc.luck);
+		printf("npc.attack | %10d | %p\n", npc.attack, &npc.attack);
+		
+		printf("\nShowing offsets...\n\n");
+		
+		printf("VARIABLE |SIZE | OFFSET IN STRUCT\n");
+		printf("------------------+--------+-----------------\n");
+		printf("npc.name |%2d bytes| ", sizeof(npc.name));
+		printf("%d\n", &npc.name - &npc);
+		printf("npc.hit_points |%2d bytes| ", sizeof(npc.hitpoints));
+		printf("%d\n", &npc.hitpoints - &npc);
+		printf("npc.leadership |%2d bytes| ", sizeof(npc.leadership));
+		printf("%d\n", &npc.leadership - &npc);
+		printf("npc.speed |%2d bytes| ", sizeof(npc.speed));
+		printf("%d\n", &npc.speed - &npc);
+		printf("npc.luck |%2d bytes| ", sizeof(npc.luck));
+		printf("%d\n", &npc.luck - &npc);
+		printf("npc.attack_points |%2d bytes| ", sizeof(npc.attack));
+		printf("%d\n", &npc.attack - &npc);
+		
+		return 0;
+	}
+
+This code generates the following compiler warning:
+	warning C4047: '-': 'char (*)[10]' differs in levels of indirection from 'Character *'
+	warning C4133: '-': incompatible types - from 'Character *' to 'short *'
+	warning C4133: '-': incompatible types - from 'Character *' to 'int *'
+	warning C4133: '-': incompatible types - from 'Character *' to 'int *'
+	warning C4133: '-': incompatible types - from 'Character *' to 'float *'
+	warning C4133: '-': incompatible types - from 'Character *' to 'short *'
+
+These warnings occur as the subtraction of two different types of pointers is occurring. To successfully compile, lines 41, 43, 45, 47, 49 and 51 need a cast to convert their respective specific pointer types into generic pointers. Each address on these lines can be cast to an unsigned char*, which can be thought of as the address of a byte, as an unsigned char is one byte. This will allow the two addresses to be treated simply as memory locations, and hence subtraction of two addresses will result in the number of bytes difference between two addresses.
+
+Add the appropriate cast to each of lines of code that currently generates a warning.
+
+An example of the completed program is as follows:
+
+	VARIABLE       |VALUE       | STORED AT
+	---------------+------------+-----------
+	npc            |            | 004BFE3C
+	npc.name       | Hendrik    | 004BFE3C
+	npc.hit_points | 5          | 004BFE46
+	npc.leadership | 8          | 004BFE48
+	npc.speed      | 9          | 004BFE4C
+	npc.luck       | 0.750000   | 004BFE50
+	npc.attack     | 10         | 004BFE54
+
+	Showing offsets...
+
+	VARIABLE          |SIZE    | OFFSET IN STRUCT
+	------------------+--------+-----------------
+	npc.name          |10 bytes| 0
+	npc.hit_points    | 2 bytes| 10
+	npc.leadership    | 4 bytes| 12
+	npc.speed         | 4 bytes| 16
+	npc.luck          | 4 bytes| 20
+	npc.attack_points | 2 bytes| 24
+
+Remember, the addresses shown in the “stored at” column will change each time the program is executed.
+
+----------------------------------------------------------------------
+10x05e - Min and Max
+Write a program that uses the heap to store an array.
+
+When run, the program must ask the user how many int elements they will enter.
+
+The program must then allow the user to enter each element, storing them in the heap array.
+
+Next, the program must print out each element stored in the heap array.
+
+Once all elements have been entered by the user, the program must state which is the smallest and which is the largest element in the array.
+
+Finally, deallocate the heap allocation.
+
+An example of the program’s output is as follows:
+
+	How many int elements will you enter? 9
+
+	Element 1: 120
+	Element 2: 41
+	Element 3: 53
+	Element 4: 144
+	Element 5: 43
+	Element 6: 23
+	Element 7: 65
+	Element 6: 143
+	Element 7: 66
+
+	The array stores the following values:
+	120, 41, 53, 144, 43, 23, 65, 143, 66
+	                       ^----------------smallest (23)
+	              ^------------------------biggest (144)
+
+----------------------------------------------------------------------
+10x06e - Heap Circle
+	#include <stdio.h>
+
+	struct Circle
+	{
+		float radius;
+		float center_x;
+		float centre_y;
+	};
+
+	void clear_members(struct Circle *p_to_clear);
+	float compute_diameter(struct Circle *p_circle);
+	float compute_area(struct Circle *p_circle);
+	float compute_circumference(struct Circle *p_circle);
+	
+	int main(void)
+	{
+		struct Circle *p_test_circle = 0;
+		// TODO: Allocate a circle structure on the heap...
+		// TODO: call clear_members with the newly created circle...
+		// TODO: Set the circle's members...
+		// TODO: Call compute_diameter, print the result returned:
+		// TODO: Call compute_area, print the result returned:
+		// TODO: Call compute_circumference, print the result returned:
+		// TODO: Deallocate the circle...
+		
+		return 0;
+	}
+
+	// TODO: Define void clear_members(struct Circle* p_to_clear);
+	// TODO: Define float compute_diameter(struct Circle* p_circle);
+	// TODO: Define float compute_area(struct Circle* p_circle);
+	// TODO: Define float compute_circumference(struct Circle* p_circle);
+
+----------------------------------------------------------------------
+10x08e - Video Game Library
+Using the Video_Game structure from the “The Video_Game Structure” exercise and your linked list code from “A Linked List of int Nodes” create a program which simulates a Video Game Library System. To implement this, Video_Game structures are to be stored in a linked list, you will need the completed code from both exercises.
+
+	Welcome to the "Video Game Library" System
+	==========================================
+	
+		1) View game titles in library.
+		2) Add game title to the library.
+		3) Exit.
+	
+	Please make a selection:
+
+Modify the Node structure by renaming it to Game_Title_Node, and changing the data if stores
+from an int to a pointer to a Video_Game structure.
+
+Change the add_new_node function such that it accepts a pointer to a Video_Game, and then have the function add the new title to the linked list based upon the alphabetical order of the titles.
+
+Modify the remove_node and print_all_nodes functions appropriately to now also work with Video_Game structures, instead of the int type.
+
+Write a function called add_new_game_title_to_library which queries the user for a new video game title which is to be added to the library. This function must allocate the new title on the heap, and populate its members based upon the users input. Users must be queried for a title, genre, platform, developer, year of release, lower age limit, a price and whether or not they support in-app purchases.
+
+Ensure the program output is exactly as described, and that the whitespace of your source code is well formatted.
+
+Create a main function that presents the user with a menu, as shown above.
+
+If the user selects 1, the program should output each game title, in a similar format to the print_video_game_details function from the previous exercise. If the user selects 2, the program should ask the user to enter details of the new game. Creating a new node, and setting its members based upon the user’s desires. If the user selects 3, the program should end.
+
+----------------------------------------------------------------------

@@ -1,0 +1,106 @@
+10x03d - main Case Flip
+Design and implement a program that takes a word from the command line input, and then flips the case of each letter in the word – that is, any uppercase letters become lowercase letters, and any lowercase letters become uppercase letters. Any other characters remain as they were.
+
+An example of the program when executed as exercise.exe hello is as follows:
+	HELLO
+
+An example of the program when executed as exercise.exe AGAIN is as follows:
+	again
+
+An example of the program when executed as exercise.exe pRoGrAmMiNg is as follows:
+	PrOgRaMmInG
+
+An example of the program when executed as exercise.exe DemO is as follows:
+	dEMo
+
+An example of the program when executed as exercise.exe flipPER is as follows:
+	FLIPper
+
+An example of the program when executed as exercise.exe Comp500 is as follows:
+	cOMP500
+
+An example of the program when executed as exercise.exe eNsE501 is as follows:
+	EnSe501
+
+----------------------------------------------------------------------
+10x08d - Linked List of int Nodes
+Declare a Node structure which describes an individual node within a linked list. Each node will have a pointer to the next node in the linked list, and an int member which holds that data stored in the node.
+
+	typedef struct tagNode
+	{
+		struct tagNode * p_next;
+		int data;
+	} Node;
+	
+Declare a global variable, named g_p_first, which holds the pointer to the first node in the linked list. Set the pointer to zero to begin with. Place this declaration at the top of your source file, below the include headers, but above all the functions.
+
+	Node* g_p_first = 0;
+
+Next, add a prototype for the following add_new_node function below the global variables. Then define the function below the prototypes.
+
+	void add_new_node(int data)
+	{
+		// TODO: Insert your code here...
+	}
+
+You will need to add code to the add_new_node function such that it creates a new Node on the heap, and assigns the data passed into the function as the data member of the new node. The newly created node should become the new first node in the linked list. Ensure the pointers are correctly set, such that the new node points to the old first node, and the global first node is updated to be the newly created now. This will effectively add a new node to the head of the list each time add_new_node is called.
+
+	void remove_node(int data)
+	{
+		// TODO: Remove the node which contains data...
+	}
+
+Next, add a prototype and definition for the remove_node function as above. Next, write code such that the remove_node function searches the linked list for a node with data matching the data passed into the function. If found, remove the node from the linked list. This will require you to reassign the pointers in the linked list such that the node to be removed is no longer in the list. Also, ensure that the node to be removed is deallocated from the heap.
+
+	void print_all_nodes()
+	{
+		// TODO: Iterate the list...
+		// TODO: print the contents of all nodes.
+	}
+
+Next, add a prototype and definition for the print_all_nodes function. This function must traverse the linked list, from the first node, to the end, printing out each node’s data, and what where it points to next. The output should be as follows:
+
+	First --> [data is 30] --> [data is 20] --> [data is 10] --> null
+	
+While developing, you may find it helpful to trace by also print the addresses of the nodes in memory, and the addresses stored in each node’s p_next pointer.
+
+Below is a sample main function, which could be used for testing. This function makes calls to add new nodes, remove nodes, and prints out the contents of the linked list. You can modify your main as necessary for testing your implementation of add_new_node, remove_node, and print_all_nodes.
+
+int main(void)
+{
+	printf("1) Print the nodes: \n");
+	print_all_nodes();
+	
+	add_new_node(10);
+	add_new_node(20);
+	add_new_node(30);
+	
+	printf("2) Print the nodes: \n");
+	print_all_nodes();
+	
+	add_new_node(40);
+	add_new_node(50);
+	add_new_node(60);
+	add_new_node(15);
+	add_new_node(25);
+	add_new_node(35);
+	
+	printf("3) Print the nodes: \n");
+	print_all_nodes();
+	
+	remove_node(20);
+	
+	printf("4) Print the nodes: \n");
+	print_all_nodes();
+	
+	remove_node(50);
+	remove_node(15);
+	
+	printf("5) Print the nodes: \n");
+	print_all_nodes();
+	
+	return 0;
+}
+
+You will need to work incrementally. Compile and run your program often. Make small changes to your code and ensure each new feature added works. Be methodical in your testing approach. Use debug printing with printf to help ensure your logic functions correctly inside each function.
+----------------------------------------------------------------------

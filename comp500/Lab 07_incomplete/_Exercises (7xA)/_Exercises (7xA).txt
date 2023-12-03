@@ -1,0 +1,319 @@
+7x11a - Treasure Finder
+----------------------------------------------------------------------
+7x13a - Number Guessing Game
+----------------------------------------------------------------------
+7x14a - The Mountain
+Create a program that outputs an ASCII art mountain based upon the user’s desired height.
+
+The program must start by querying the user for a mountain height. It must then output the corresponding mountain. The edges of the mountain forward and backward slash characters, and the inner terrain must be the '#' symbol. Ensure the base of the mountain is printed the required width.
+
+After printing the tree, print eight random flowers. Randomly pick a symbol for each of the eight flowers. Choose from these ten possible symbols: '!', '@', '#', '$', '%', '^', '&', '*', '-' and '='.
+
+Finally, the program must print a happy mid-semester class break message as shown below:
+
+	Mountain height? 7
+		  /\
+		 /##\
+		/####\
+	   /######\
+	  /########\
+	 /##########\
+	/############\
+	+------------+
+	[-] [&] [+] [%] [*] [^] [@] [#]
+	\|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/
+	Happy mid-semester class break!
+
+Tree heights of 2 and greater are acceptable. The program must validate the user’s input. For example:
+
+	Mountain height? 1
+	Invalid! Must be greater than one!
+
+	Mountain height? 10
+			 /\
+			/##\
+		   /####\
+		  /######\
+		 /########\
+		/##########\
+	   /############\
+	  /##############\
+	 /################\
+	/##################\
+	+------------------+
+	[@] [#] [^] [-] [&] [+] [%] [*]
+	\|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/
+	Happy mid-semester class break!
+
+	How tall? 2
+	 /\
+	/##\
+	+--+
+	[#] [-] [@] [*] [^] [&] [+] [%]
+	\|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/
+	Happy mid-semester class break!
+----------------------------------------------------------------------
+7x15a - Wheel of Fortune
+“Wheel-of-Fortune” is a phrase-guessing game where the user must guess a secret phrase, one letter at a time. In this simplified version of the game, there is only a single user.
+
+Before guessing a letter, the user is given the opportunity to “spin” the wheel for a random dollar amount between $100 and $1000 inclusive, in steps of $50: i.e. $100, $150, $200, $250, $300, $350, … , $900, $950, $1000.
+
+After spinning, the user can then guess a single letter. Each correctly guessed letter is revealed in its place in the secret phrase. Correctly guessing a letter results in awarding the user the random dollar amount. An incorrectly guessed letter causes the random dollar amount to be deducted from the user’s total. The user’s total dollar amount can go negative.
+
+When the user fully reveals the secret phrase, the program asks if the user wants to play another round.
+
+The program must be case-insensitive, such that the user can input either a lower-case or upper-case letter.
+
+There is one further C programming technique required to fully complete this exercise that you will be unfamiliar with at this point in the course (the end of Week 7): creating an array of C-Strings.
+
+Ideally, this program should include five different built-in secret English phrases, of which one is used at random per round. To do this, you will need an array of C-String’s for example:
+
+	char* secret_phrases[] =
+	{
+		"ANOTHER PROGRAMMING TECHNIQUE TO LEARN",
+		"FIRST SOLVE THE PROBLEM THEN WRITE THE CODE",
+		"MAKE IT WORK MAKE IT RIGHT MAKE IT FAST",
+		"ITS HARDER TO READ CODE THAN TO WRITE IT",
+		"TALK IS CHEAP SHOW ME THE CODE"
+	};
+
+To utilise this, you may need to do some self-directed study on pointers, char pointers, storing and accessing C-Strings in an array. These techniques will be covered later in the course.
+
+To avoid this requirement, at the start of the program you can alternatively ask the user for a secret phrase to use, for example:
+
+	Game master, what is the secret phrase?
+
+The program should then print enough newlines to clear the screen and hide this input. Allowing input of the secret phrase will require two players to play the game, one to input the secret phrase, the other to then play Wheel-of-Fortune. As a programmer, you can take on both roles!
+
+Also, as the game progresses, collect the following data on the user:
+	• The number of rounds played.
+	• The number of times a secret phrase is fully revealed.
+	• The number of correctly guessed letters for all rounds played.
+	• The total amount of dollars won by fully revealing a phrase for all rounds played.
+
+At the start of the program, the following output is presented:
+
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	Welcome to WHEEL-OF-FORTUNE - a phrase-guessing game!
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	
+	Wheel-of-Fortune is a game show competition where a contestant
+	solves short phrases by revealing one letter at a time to win
+	cash prizes* determined by spinning a giant carnival wheel!
+	
+	Contestants win their cash prizes* by revealing all the
+	letters in the short phrase.
+	
+	*Note: all the "cash prizes" are virtual...
+	[=========================================================]
+	
+	Player's balance: $0
+	
+	[=========================================================]
+	
+	0 incorrect guesses: [ ]
+	
+	Phrase: ---- -- ----- ---- -- --- ----
+	
+	Your spin: $750
+	
+	Contestant, your guess?
+
+After the introduction is displayed as above, the “wheel-of-fortune” has spun a random dollar amount of $750.
+
+Notice that the secret phrase is displayed using dash '-' characters. Each word in the phrase is separated by a single space character.
+
+Also notice, the incorrect guess count is zero – this is because the phrase-guessing game has just started, and the user has not made any guesses yet!
+
+Next, the user can input a single character guess.
+
+In the example above, the secret phrase is “Talk is cheap show me the code”.
+
+Correct guesses reveal the corresponding hidden letters. For example, when the user (the contestant) guesses the letter 'a' the following occurs:
+
+	[=========================================================]
+
+	Player's balance: $750
+
+	[=========================================================]
+
+	0 incorrect guesses: [ ]
+
+	Phrase: -A-- -- ---A- ---- -- --- ----
+
+	Your spin: $250
+
+	Contestant, your guess?
+
+Notice that each occurrence of the letter guessed ('a' in the example above) is revealed.
+
+The user is then able to make their next guess.
+
+When the user incorrectly guesses the letter 'z' the following occurs:
+
+	[=========================================================]
+
+	Player's balance: $500
+
+	[=========================================================]
+	1 incorrect guess: [ Z ]
+
+	Phrase: -A-- -- ---A- ---- -- --- ----
+
+	Your spin: $100
+
+	Contestant, your guess?
+
+This pattern of interaction continues where the user is asked for their guess, and the program either uncovers the correct, corresponding letter from the secret phrase, or it adds the incorrectly guessed letter to the list of incorrect guesses.
+
+To keep the game simple, the user is allowed to guess vowels as well as consonants.
+
+Any time the user’s guess is not a letter, the program must respond as follows:
+
+	Contestant, your guess? 3
+
+	!!! 3 is not a letter !!!
+
+	Contestant, your guess?
+	
+Another example is as follows:
+	Contestant, your guess? #
+
+	!!! # is not a letter !!!
+
+	Contestant, your guess?
+
+Non-letter guesses do not count towards the user’s tally of incorrectly (or correctly) guessed letters!
+
+When the player’s balance goes below negative $3000, the round is over.
+	[=========================================================]
+
+	Player's balance: $-2500
+
+	[=========================================================]
+
+	7 incorrect guesses: [ Z X V B F G J ]
+
+	Phrase: -A-- -S CH-A- SH-- M- -H- C-D-
+
+	Your spin: $750
+
+	Contestant, your guess?
+
+In the example above, the user has correctly guessed the letters 'A', 'C', 'D', 'H', 'M', 'N', and 'S'.
+
+They have incorrectly guessed the letters: 'Z', 'X', 'V', 'B', 'F', 'G' and 'J'.
+
+Also, at this point, the wheel has spun $750, and the user is only able to make one more incorrect guess as this will cause their balance to go below negative $3000, hence ending the round.
+
+If the user’s balance goes below negative $3000 then the round ends and following is displayed:
+
+	[=========================================================]
+
+	Player's balance: $-3250
+
+	[=========================================================]
+
+	8 incorrect guesses: [ Z X V B F G J Q ]
+
+	Phrase: -A-- -S CH-A- SH-- M- -H- C-D-
+
+	The phrase was:
+
+	Phrase: TALK IS CHEAP SHOW ME THE CODE
+
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+					 GAME OVER!
+
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+	Do you want to try again?
+
+The user must respond with either 'y' or 'n', in either upper- or lower-case.
+
+When the user’s response is not the letter 'y' or 'n', the program must respond as follows:
+	Do you want to try again? q
+	
+	Invalid input!
+	
+	Do you want to try again?
+
+When the user responds with yes, the following occurs, and a new round starts:
+Do you want to try again? y
+
+Here we go again...
+
+	[=========================================================]
+
+	Player's balance: $0
+
+	[=========================================================]
+
+	0 incorrect guesses: [ ]
+
+	Phrase: ----- ----- ---- ----
+
+	Your spin: $100
+
+	Contestant, your guess?
+	
+The secret phrase in the example above is: “Think twice code once”
+
+When the user responds with no, the following message is displayed, and the program then ends:
+
+	Do you want to try again? n
+	
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	
+	                   GAME OVER!
+					   
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	
+	2 rounds played.
+	1 secret phrase fully revealed.
+	10 letters correctly guessed.
+	$1750 virtual cash prizes won.
+	
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	
+	Press ENTER to quit...
+	
+	
+When the user fully reveals the secret phrase, the following occurs:
+
+	[=========================================================]
+	
+	Player's balance: $2500
+	
+	[=========================================================]
+	
+	2 incorrect guess: [ Z X ]
+	
+	Phrase: THINK TWIC- COD- ONC-
+	
+	Your spin: $500
+	
+	Contestant, your guess? E
+	
+	Well done, you revealed the secret phrase!
+	
+	Phrase: THINK TWICE CODE ONCE
+	
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	
+	                 You win $3000!
+	
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+	
+	Do you want to try again?
+
+Also, ensure that the final “You win $” output is zero or greater so that the player is not able to win a negative amount.
+
+After successfully guessing the secret phrase, the program asks if the user wants to try again.
+
+Starting a new round will cause the player’s balance to reset to zero!
+
+Based upon the program requirements set out above, design, implement, test and debug the
+“Wheel-of-Fortune” program using C.
+----------------------------------------------------------------------

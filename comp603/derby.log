@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue May 16 00:07:40 NZST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-1f4f-2629-0000035a8aa0 
+on database directory C:\Users\coriandar\_Downloads\230515_PDC_Labs\PlayerDB with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
+Loaded from file:/C:/Users/coriandar/_Downloads/230515_PDC_Labs/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_361-b09
+user.dir=C:\Users\coriandar\_Downloads\230515_PDC_Labs
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

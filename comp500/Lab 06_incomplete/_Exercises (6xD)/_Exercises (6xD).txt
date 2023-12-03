@@ -1,0 +1,185 @@
+6x10d - Monty Hall Game
+
+The Monty Hall Game is a famous entertainment game show. Design and implement a program which allows a human player to play multiple rounds of the game. At the start of the game, print a welcome banner for the game as follows:
+
+The Monty Hall Game Show!
+-------------------------
+
+In the game, a player is presented with three doors. Print the three doors in the following style:
+
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+Behind one of the doors is a valuable prize ($). Behind the other two doors is a bogus prize (x).
+
+At the start of the game, the player is allowed to choose one of the three doors. Print a prompt as follows, allowing the user to respond:
+
+	Which door does the player choose (1/2/3)? 3
+
+After the player chooses a door, the game show host (the computer’s AI) will open up one of the other two doors – they will always open a losing door, not a winning one. Print the host opened door as follows:
+
+	The game host chooses door number 1...
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+Next the game show host must allow the player the option to switch their choice from their initial choice, to the remaining unopened door. Prompt the user as follows:
+
+	Does the player want to switch from door 3 to door 2 (y/n)? n
+
+The game must then react to whether or not the player chooses to switch doors, in this case they do not switch:
+	
+	Player chooses to stay with door 3...
+
+If the player chose to swap, the game must output in the following style:
+
+	Player swaps to door 2...
+	
+Finally the game must reveal what is behind each door, in the following style:
+	It's time to reveal the prizes!
+	
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | $ | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+The game must then state whether the player wins, or loses – in this case the player loses:
+
+	Oh no! The player loses!
+
+If the player had won, the game would output in the following style:	
+	
+	Congratulations! The player wins!
+	
+Once the game has finished, the player must be prompted as to whether or not they want to play another round. The game must be replayable until the user chooses to stop playing:
+	
+	Play again (y/n)? n
+
+Example:
+	The Monty Hall Game Show!
+	-------------------------
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+	Which door does the player choose (1/2/3)? 3
+	The game host chooses door number 1...
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+	Does the player want to switch from door 3 to door 2 (y/n)? n
+	Player chooses to stay with door 3...
+	It's time to reveal the prizes!
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | $ | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+	Oh no! The player loses!
+	Play again (y/n)? n
+
+	The Monty Hall Game Show!
+	-------------------------
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+	Which door does the player choose (1/2/3)? 1
+	The game host chooses door number 3...
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+	Does the player want to switch from door 1 to door 2 (y/n)? y
+	Player swaps to door 2...
+	It's time to reveal the prizes!
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | $ | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+	Congratulations! The player wins!
+	Play again (y/n)? n
+
+
+
+	The Monty Hall Game Show!
+	-------------------------
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+	Which door does the player choose (1/2/3)? 1
+	The game host chooses door number 2...
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | x | | 3 |
+	|   | | |   |   |
+	+---+ +---+ +---+
+	Does the player want to switch from door 1 to door 3 (y/n)? y
+	Player swaps to door 3...
+	It's time to reveal the prizes!
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| $ | | x | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+	Oh no! The player loses!
+	Play again (y/n)? n
+		
+		
+		
+	The Monty Hall Game Show!
+	-------------------------
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+	Which door does the player choose (1/2/3)? 1
+	The game host chooses door number 3...
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | x |
+	| |   |   | |   |
+	+---+ +---+ +---+
+	Does the player want to switch from door 1 to door 2 (y/n)? y
+	Player swaps to door 2...
+	It's time to reveal the prizes!
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | $ | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+	Congratulations! The player wins!
+	Play again (y/n)? n
+----------------------------------------------------------------------

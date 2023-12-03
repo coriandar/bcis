@@ -1,0 +1,123 @@
+7x10e - Modular Monty
+
+The Monty Hall Game is a famous entertainment game show. A completed example of the game program is as follows:
+
+	The Monty Hall Game Show!
+	-------------------------
+
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+	Which door does the player choose (1/2/3)? 1
+
+	The game host chooses door number 3...
+
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+	Does the player want to switch from door 1 to door 2 (y/n)? y
+
+	Player swaps to door 2...
+
+	It's time to reveal the prizes!
+
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | $ | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+	Congratulations! The player wins!
+
+	Play again (y/n)? n
+
+Design and implement a program which allows a human player to play multiple rounds of the game. Ensure your design and implementation is modular by creating multiple functions with different responsibilities.
+
+At the start of the game, print a welcome banner for the game. Declare and define a function named print_welcome to print the welcome banner as follows:
+
+	The Monty Hall Game Show!
+	-------------------------
+
+In the game, a player is presented with three doors. Declare and define a function named print_doors that prints the three doors in the following style:
+
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| 1 | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+Behind one of the doors is a valuable prize ($). Behind the other two doors is a bogus prize (x). The print_doors function must have a parameter for each door, allowing the caller to print the symbol shown on each door, either 1, 2, 3, $ or x – or even some other character value based upon the caller’s arguments.
+
+At the start of the game, the player is allowed to choose one of the three doors. Declare and define a function named prompt_player_door_choice that prints a prompt as follows, allowing the user to respond, and hence returns the user’s response:
+
+	Which door does the player choose (1/2/3)? 3
+
+After the player chooses a door, the game show host (the computer’s AI) will open up one of the other two doors – they will always open a losing door, not a winning one. Declare and define a function named print_host_door, which takes in a single integer as input, and outputs in the following style:
+
+	The game host chooses door number 1...
+	
+Next, print the host opened door, by calling print_doors , as follows:
+
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | 2 | | 3 |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+Next the game show host must allow the player the option to switch their choice from their initial choice, to the remaining unopened door. Declare and define a function named prompt_player_switch_doors that will prompt the user and return the result to the caller:
+
+	Does the player want to switch from door 3 to door 2 (y/n)? n
+	
+The game must then react to whether or not the player chooses to switch doors, in this case they do not switch.
+
+Declare and define a function named stay_at_door, which takes in one parameter representing the doors the player wishes to stick with, and outputs in the following style:
+
+	Player chooses to stay with door 3...
+
+Declare and define a function named swap_to_door, which takes in one parameter representing the doors the player wishes to swap to, and outputs in the following style:
+
+	Player swaps to door 2...
+	
+Call stay_at_door or swap_to_door based upon the user’s response to being offered to switch doors.
+
+Next, the game must announce to the user that it is time to reveal the prizes. Declare and define a function name print_time_to_reveal that prints the following:
+
+	It's time to reveal the prizes!
+	
+Finally the game must reveal what is behind each door, again calling print_doors in the following style:
+
+	Door1 Door2 Door3
+	+---+ +---+ +---+
+	|   | |   | |   |
+	| x | | $ | | x |
+	|   | |   | |   |
+	+---+ +---+ +---+
+
+The game must then state whether the player wins, or loses – in this case the player loses. Declare and define a function named print_player_loses that prints out as follows:
+
+	Oh no! The player loses!
+
+Declare and define a function named print_player_wins that prints out as in the following style:
+
+	Congratulations! The player wins!
+
+Call print_player_loses or print_player_wins based upon whether or not the player wins or loses.
+
+Once the game has finished, the player must be prompted as to whether or not they want to play another round. Declare and define a function named query_play_again that prompts the user, and returns their response to the caller. The game must be replayable until the user chooses to stop playing:
+
+	Play again (y/n)? n
+
+In addition, create any other modular functions that help realise the overall game play algorithm.
+
+----------------------------------------------------------------------

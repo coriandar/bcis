@@ -1,0 +1,75 @@
+9x08e - String Searching
+	#define _CRT_SECURE_NO_WARNINGS
+	#include <stdio.h>
+
+	enum Contains_Result
+	{
+		ABSENT,
+		PRESENT
+	};
+
+	enum Contains_Result contains(char* cstring, char find);
+
+	int main(void)
+	{
+		char buffer1[] = "Hello Programming 1 Students";
+		char buffer2[] = "Learn to program using arrays and pointers!";
+		
+		int found_d = contains(buffer1, 'd');
+		
+		if (found_d == PRESENT)
+		{
+			printf("buffer1 contains d\n");
+		}
+		else
+		{
+			printf("buffer1 does not contain m\n");
+		}
+		
+		found_d = contains(buffer2, 'd');
+		
+		if (found_d == PRESENT)
+		{
+			printf("buffer2 contains d\n");
+		}
+		else
+		{
+			printf("buffer2 does not contain d\n");
+		}
+		
+		return 0;
+	}
+
+	enum Contains_Result contains(char* cstring, char find)
+	{
+	// TODO: Insert your code here...
+	}
+	
+	Define the function enum Contains_Result contains(char* cstring, char find) which returns PRESENT if the first parameter, cstring, contains the second parameter find, otherwise it must return ABSENT.
+
+	Add another two array declarations and initialisations in the main function. Call contains with the newly added arrays and print the results. Ensure one of the calls to contains checks for a value that exists, and the other call checks for a value that does not exist.
+----------------------------------------------------------------------
+9x09e - All Phone Numbers
+	Digits on a telephone have corresponding letters.
+
+	Write a program that prompted the user for a seven-digit phone number then writes to a file named phonenumbers.txt every possible seven-letter word corresponding to the user input phone number. There are 2187 (37) such words. Also, avoid phone numbers with the digits 0 and 1.
+
+	An example of one possible word, for the phone number 686-2377 is NUMBERS.
+----------------------------------------------------------------------
+9x10e - Run Length Encoder
+	Run Length Encoding (RLE) is a very simple form of lossless data compression.
+
+	In RLE, sequences of the same value in data (the runs) are stored as a single data value and a count (the length).
+
+	Write a program that can read in a text file, one byte at a time, and then output the run length encoding for the text file.
+
+	Using the rle.txt file available on Blackboard, the program’s output is as follows:
+
+		Filename? rle.txt
+		5W2X7W1B8W3X4W3B11W11D10W2Q3W2Q3B2W3Z6W6Q5W
+		
+	Using the rle2.txt file available on Blackboard, the program’s output is as follows:
+
+		Filename? rle2.txt
+		1H1E2L1O1 1P1R1O1G1R1A2M1I1N1G1 1W1O1R1L1
+----------------------------------------------------------------------

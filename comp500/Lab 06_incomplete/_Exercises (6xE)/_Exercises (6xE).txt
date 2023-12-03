@@ -1,0 +1,59 @@
+6x10e - Monty Hall Sim
+
+Before undertaking this exercise, complete the 6x10d Monty Hall Game exercise. Utilise your completed source code from 6x10d to then complete this exercise.
+
+Update the program source code such that there is no user interaction for the game play loop so that the game can be played automatically.
+
+At the start of the program, before the game loop begins, ask the user how many game rounds shall be simulated, and then ask whether or not the player should always choose to switch doors, or never choose to switch doors.
+
+Based upon the user’s input (the “number of rounds” and “switch doors or not”) run the requested number of game rounds. There should be no further user interaction, the program should simply simulate the game in an automated fashion.
+
+Once all rounds have been simulated, the program must output the following:
+	 The total number of game rounds automatically simulated.
+	 Whether the player was always switching doors, or never switching doors.
+	 The total number of player wins.
+	 The total number of player losses.
+	 The win tally for each door.
+
+An example of the program when run with the “always switch doors” option, for 1000 rounds of the game is as follows:
+
+	How many games shall we simulate? 1000
+	Should the player always, or never, switch doors? (a/n)? a
+
+After completing the simulation, the summary statistics for the game when run with the “always switch doors” option, for 1000 rounds of the game is as follows:
+
+	----------------------------------------
+	Game Summary of game number 1000:
+	
+	Player always switches door.
+	
+	Total wins: 681
+	Total losses: 319
+	
+	Door 1 win tally: 363
+	Door 2 win tally: 318
+	Door 3 win tally: 319
+	
+	----------------------------------------
+
+An example of the program when run with the “never switch doors” option, for 1000 rounds of the game is as follows:
+
+	How many games shall we simulate? 1000
+	Should the player always, or never, switch doors? (a/n)? n
+
+After completing the simulation, the summary statistics for the game when run with the “never switch doors” option, for 1000 rounds of the game is as follows:
+
+	----------------------------------------
+	Game Summary of game number 1000:
+
+	Player never switches door.
+
+	Total wins: 322
+	Total losses: 678
+
+	Door 1 win tally: 332
+	Door 2 win tally: 330
+	Door 3 win tally: 338
+
+	----------------------------------------
+----------------------------------------------------------------------

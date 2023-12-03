@@ -1,0 +1,169 @@
+8x05d - Coordinate Conversions
+	#include <stdio.h>
+	#include <math.h>
+	
+	// TODO: Declare structure types here:
+	
+	struct Polar convert_to_polar(struct Cartesian point);
+	struct Cartesian convert_to_cartesian(struct Polar point);
+	void print_polar(struct Polar to_print);
+	void print_cartesian(struct Cartesian to_print);
+	
+	int main(void)
+	{
+		struct Cartesian user_input;
+		struct Polar polar;
+		struct Cartesian check;
+		
+		printf("Cartesian x? ");
+		scanf("%f", &user_input.x);
+		printf("Cartesian y? ");
+		scanf("%f", &user_input.y);
+		
+		polar = convert_to_polar(user_input);
+		
+		check = convert_to_cartesian(polar);
+		
+		print_polar(polar);
+		print_cartesian(check);
+		
+		return 0;
+	}
+	
+	// TODO: Define functions here:
+
+The main function has already been implemented.
+
+Declare a structure type named Cartesian which has two floating-point members named x and y.
+
+Declare a structure type named Polar which has two floating-point members named r and theta.
+
+Implement function definitions for convert_to_polar, convert_to_cartesian, print_cartesian and print_polar.
+	
+The print_cartesian function must print out in the following style based upon the parameter input:
+	
+	(x, y) = (3.000000, 4.000000)
+	
+The print_polar function must print out in the following style based upon the parameter input:
+	
+	(r, theta) = (5.000000, 0.927295)
+	
+The convert_to_polar function must convert the Cartesian point input into the equivalent Polar coordinate. The math.h functions sqrtf and atanf will be required to compute the conversion.
+	
+The convert_to_cartesian function must convert the Polar point input into the equivalent Cartesian coordinate. The math.h functions sinf and cosf will be required to compute the conversion.
+
+An example of the completed program’s output is as follows:
+	
+	Cartesian x? 5
+	Cartesian y? 5
+	(r, theta) = (7.071068, 0.785398)
+	(x, y) = (5.000000, 5.000000)
+	
+Another example of the completed program’s output is as follows:
+	
+	Cartesian x? 3
+	Cartesian y? 4
+	(r, theta) = (5.000000, 0.927295)
+	(x, y) = (3.000000, 4.000000)
+	
+----------------------------------------------------------------------
+8x09d - AI Mind Reader
+
+	Think of a number between 0 and 100, I will guess it!
+	I guess 50
+	Am I right (h/l/y)? l
+	I guess 24
+	Am I right (h/l/y)? l
+	I guess 11
+	Am I right (h/l/y)? h
+	I guess 17
+	Am I right (h/l/y)? y
+	Great! That's my favourite number too!
+	
+	Think of a number between 0 and 100, I will guess it!
+	I guess 50
+	Am I right (h/l/y)? l
+	I guess 24
+	Am I right (h/l/y)? l
+	I guess 11
+	Am I right (h/l/y)? h
+	I guess 17
+	Am I right (h/l/y)? l
+	I guess 14
+	Am I right (h/l/y)? h
+	I guess 15
+	Am I right (h/l/y)? h
+	You must be thinking of 16
+	
+	Think of a number between 0 and 100, I will guess it!
+	I guess 50
+	Am I right (h/l/y)? l
+	I guess 24
+	Am I right (h/l/y)? l
+	I guess 11
+	Am I right (h/l/y)? l
+	I guess 5
+	Am I right (h/l/y)? l
+	I guess 2
+	Am I right (h/l/y)? l
+	I guess 0
+	Am I right (h/l/y)? l
+	You are cheating!
+----------------------------------------------------------------------
+8x10d - Keyboard W-E-A
+Create a program where the user is presented with the characters of the lower-case alphabet, however one of the letters is randomly missing. The user must then press the missing letter’s key.
+
+Once the user has pressed the missing letter’s key, a new row of lower-case alphabet characters must be presented, with a new random missing letter. The user must then press the new missing letter’s key.
+
+The program must count how many times the user presses the correct missing letter’s key while the program is running, as well as how many times the user presses an incorrect key.
+
+Also, the user must be able to press '~' to quit. The program must then present the user with the data on how many keys were correctly pressed, and how many were incorrectly pressed.
+
+Declare and define at least five useful functions in addition to the main function.
+
+	+-----------------------+
+	| Keyboard Whack-Em-All |
+	+-----------------------+
+
+	a b c _ e f g h i j k l m n o p q r s t u v w x y z
+
+	Press the missing letter's key (Press '~' to quit!):
+
+For example, when the user chooses to quit the following occurs:
+
+	Press the missing letter's key (Press '~' to quit!): ~
+
+	Correct count: 7
+
+	Incorrect count: 13
+
+	Goodbye!
+
+
+
++-----------------------+
+| Keyboard Whack-Em-All |
++-----------------------+
+a b c _ e f g h i j k l m n o p q r s t u v w x y z
+Press the missing letter's key (Press '~' to quit!): d
+a b c d e f g h i j k l m n _ p q r s t u v w x y z
+Press the missing letter's key (Press '~' to quit!): o
+a b c d e _ g h i j k l m n o p q r s t u v w x y z
+Press the missing letter's key (Press '~' to quit!): e
+Press the missing letter's key (Press '~' to quit!): g
+Press the missing letter's key (Press '~' to quit!): f
+a b c d e f g h i j k l m n o p q r s t u v w _ y z
+Press the missing letter's key (Press '~' to quit!):
+
+
+
++-----------------------+
+| Keyboard Whack-Em-All |
++-----------------------+
+a b c d e f g h i j k l m n o p q r _ t u v w x y z
+Press the missing letter's key (Press '~' to quit!): ~
+Correct count: 0
+Incorrect count: 0
+Goodbye!
+
+----------------------------------------------------------------------
